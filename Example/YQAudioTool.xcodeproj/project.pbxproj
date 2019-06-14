@@ -28,9 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D642D52FA97B2EAE5171AF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		0D642D52FA97B2EAE5171AF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3F2BB136FBE4C770F4076F03 /* Pods-YQAudioTool_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAudioTool_Example.release.xcconfig"; path = "Target Support Files/Pods-YQAudioTool_Example/Pods-YQAudioTool_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4C06CE60C7784018E4285500 /* YQAudioTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YQAudioTool.podspec; path = ../YQAudioTool.podspec; sourceTree = "<group>"; };
+		4C06CE60C7784018E4285500 /* YQAudioTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YQAudioTool.podspec; path = ../YQAudioTool.podspec; sourceTree = "<group>"; };
+		5576384E22B33FDF00DD2F23 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5576385122B33FDF00DD2F23 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5576385222B3400A00DD2F23 /* YQAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQAudioRecorder.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* YQAudioTool_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQAudioTool_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +45,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		71362AFC580390EE7B8C6250 /* Pods-YQAudioTool_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAudioTool_Example.debug.xcconfig"; path = "Target Support Files/Pods-YQAudioTool_Example/Pods-YQAudioTool_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		94B0FCEB8165D3013F742527 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		94B0FCEB8165D3013F742527 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B8F5696E6D73CCA5737B465A /* Pods_YQAudioTool_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQAudioTool_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D2F5BF3C6354E18DBDC0A1 /* Pods-YQAudioTool_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAudioTool_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YQAudioTool_Tests/Pods-YQAudioTool_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB29F0C0A07B924ABA13BE0 /* Pods_YQAudioTool_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQAudioTool_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +72,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5576384C22B33FDF00DD2F23 /* YQAudioTool */ = {
+			isa = PBXGroup;
+			children = (
+				5576384D22B33FDF00DD2F23 /* Classes */,
+				5576385022B33FDF00DD2F23 /* Assets */,
+			);
+			name = YQAudioTool;
+			path = ../YQAudioTool;
+			sourceTree = "<group>";
+		};
+		5576384D22B33FDF00DD2F23 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5576384E22B33FDF00DD2F23 /* .gitkeep */,
+				5576385222B3400A00DD2F23 /* YQAudioRecorder.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5576385022B33FDF00DD2F23 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5576385122B33FDF00DD2F23 /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		5C48242B2D10F6087C870B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				5576384C22B33FDF00DD2F23 /* YQAudioTool */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for YQAudioTool */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -156,7 +187,6 @@
 				B9D2F5BF3C6354E18DBDC0A1 /* Pods-YQAudioTool_Tests.debug.xcconfig */,
 				DAD5D7B2A9DFA7DAEA3527AA /* Pods-YQAudioTool_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +243,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = QXPHWM9EW2;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = QXPHWM9EW2;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +259,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

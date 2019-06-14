@@ -1,0 +1,16 @@
+PODS:
+  - YQAudioTool (0.1.1)
+
+DEPENDENCIES:
+  - YQAudioTool (from `../`)
+
+EXTERNAL SOURCES:
+  YQAudioTool:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YQAudioTool: da4561ac9dc730f0326f51b0342625ec7abb4708
+
+PODFILE CHECKSUM: 262be37587b0822eef1ebd3e813187fd2622176a
+
+COCOAPODS: 1.7.1
