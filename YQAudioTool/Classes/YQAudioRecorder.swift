@@ -103,11 +103,11 @@ public class YQAudioRecorder: NSObject {
 }
 
 extension YQAudioRecorder: AVAudioRecorderDelegate {
-    private func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         didStop()
     }
     
-    private func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+    public func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         guard let error = error else {
             print("录音发生未知错误")
             return
