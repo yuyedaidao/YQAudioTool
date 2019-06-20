@@ -84,8 +84,8 @@ public class YQAudioRecorder: NSObject {
             return
         }
         recorder.stop()
-        self.recorder = nil
-        didStop()
+//        self.recorder = nil
+//        didStop()
     }
     
     func didStop() {
