@@ -15,7 +15,7 @@ public enum YQAudioPlayerStatus {
     case didPlayToEnd
     case timeJumped
 }
-public protocol YQAudioPlayerDelegate {
+public protocol YQAudioPlayerDelegate: AnyObject {
     func audioPlayer(_ player: YQAudioPlayer, status: YQAudioPlayerStatus)
     func audioPlayer(_ player: YQAudioPlayer, seconds: Double)
 }
@@ -28,7 +28,7 @@ public class YQAudioPlayer: NSObject {
     }
     private var isItemChanged: Bool = true
     private var player: AVPlayer?
-    public var delegate: YQAudioPlayerDelegate?
+    public weak var delegate: YQAudioPlayerDelegate?
     public var currentItemDuration: Double? {
         return self.player?.currentItem?.duration.seconds
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-public protocol YQAudioRecorderDelegate {
+public protocol YQAudioRecorderDelegate: AnyObject {
     func recorderDidStart(_ recorder: YQAudioRecorder)
     func recorderDidEnd(_ recorder: YQAudioRecorder)
     func recoreder(_ recorder: YQAudioRecorder, peakPower: Float, averagePower: Float)
@@ -21,7 +21,7 @@ public class YQAudioRecorder: NSObject {
     }
     public var mainURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("YQAudioRecorder")
     public var relativePath: String? = "\(UUID().uuidString).wav"
-    public var delegate: YQAudioRecorderDelegate?
+    public weak var delegate: YQAudioRecorderDelegate?
     public override init() {}
     private var isSessionActive = false
     private var timer: Timer?
