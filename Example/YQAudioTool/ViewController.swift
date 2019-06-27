@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         player.url = url
         player.delegate = self
         player.play()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            self.player.seek(6)
+        }
     }
     
     override func didReceiveMemoryWarning() {

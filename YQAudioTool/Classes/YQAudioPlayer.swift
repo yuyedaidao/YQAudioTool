@@ -44,7 +44,7 @@ public class YQAudioPlayer: NSObject {
             }
             let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
-            player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: nil, using: { [weak self](time) in
+            player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: 6000), queue: nil, using: { [weak self](time) in
                 guard let self = self else {return}
                 self.delegate?.audioPlayer(self, seconds: time.seconds)
             })
@@ -67,8 +67,8 @@ public class YQAudioPlayer: NSObject {
         self.player?.pause()
     }
     
-    public func seek(_ date: Date) {
-        self.player?.seek(to: date)
+    public func seek(_ seconds: Double) {
+        self.player?.seek(to: CMTime(seconds: seconds, preferredTimescale: 6000))
     }
     
     @objc func notificationHandler(_ sender: Notification) {
