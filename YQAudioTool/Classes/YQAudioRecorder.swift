@@ -15,12 +15,28 @@ public protocol YQAudioRecorderDelegate {
 }
 public class YQAudioRecorder: NSObject {
     var recorder: AVAudioRecorder?
-    public var fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("YQAudioRecorder/swiftisbest.wav")
+    public var fileURL: URL? {
+        guard let relativePath = self.relativePath else {return nil}
+        return mainURL.appendingPathComponent(relativePath)
+    }
+    public var mainURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("YQAudioRecorder")
+    public var relativePath: String? = "\(UUID().uuidString).wav"
     public var delegate: YQAudioRecorderDelegate?
     public override init() {}
     private var isSessionActive = false
     private var timer: Timer?
     public func start() {
+        guard let url = fileURL else {
+            print("请指定relativePath")
+            return
+        }
+        if !FileManager.default.fileExists(atPath: mainURL.path) {
+            do {
+                try FileManager.default.createDirectory(at: mainURL, withIntermediateDirectories: true, attributes: nil)
+            } catch let error {
+                print(error)
+            }
+        }
         AVAudioSession.sharedInstance().requestRecordPermission { (authorized) in
             DispatchQueue.main.async {
                 guard authorized else {
@@ -41,9 +57,9 @@ public class YQAudioRecorder: NSObject {
                     ]
                     self.stop()
                     do {
-                        let dir = self.fileURL.deletingLastPathComponent()
+                        let dir = url.deletingLastPathComponent()
                         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true, attributes: nil)
-                        self.recorder = try AVAudioRecorder(url: self.fileURL, settings: settings)
+                        self.recorder = try AVAudioRecorder(url: url, settings: settings)
                         self.recorder!.isMeteringEnabled = true
                         self.recorder!.delegate = self
                         guard self.recorder!.record() else {

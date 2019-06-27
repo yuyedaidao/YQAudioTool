@@ -31,6 +31,7 @@
 		0D642D52FA97B2EAE5171AF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3F2BB136FBE4C770F4076F03 /* Pods-YQAudioTool_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAudioTool_Example.release.xcconfig"; path = "Target Support Files/Pods-YQAudioTool_Example/Pods-YQAudioTool_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4C06CE60C7784018E4285500 /* YQAudioTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YQAudioTool.podspec; path = ../YQAudioTool.podspec; sourceTree = "<group>"; };
+		553F0D3522C4A86B00E8E42A /* YQAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQAudioPlayer.swift; sourceTree = "<group>"; };
 		5576384E22B33FDF00DD2F23 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5576385122B33FDF00DD2F23 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5576385222B3400A00DD2F23 /* YQAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQAudioRecorder.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 			children = (
 				5576384E22B33FDF00DD2F23 /* .gitkeep */,
 				5576385222B3400A00DD2F23 /* YQAudioRecorder.swift */,
+				553F0D3522C4A86B00E8E42A /* YQAudioPlayer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

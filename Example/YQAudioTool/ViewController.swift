@@ -13,11 +13,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     let recorder = YQAudioRecorder()
+    let player = YQAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         recorder.delegate = self
-        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
 
     @IBAction func playAction(_ sender: UIButton) {
@@ -28,6 +29,16 @@ class ViewController: UIViewController {
         }
 //        sender.isSelected = !sender.isSelected
     }
+    
+    @IBAction func playRecord(_ sender: Any) {
+        guard let url = recorder.fileURL else {
+            return
+        }
+        player.url = url
+        player.delegate = self
+        player.play()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,6 +60,14 @@ extension ViewController: YQAudioRecorderDelegate {
     func recoreder(_ recorder: YQAudioRecorder, peakPower: Float, averagePower: Float) {
         print("peak: \(peakPower) average: \(averagePower)")
     }
+}
+
+extension ViewController: YQAudioPlayerDelegate {
+    func audioPlayer(_ player: YQAudioPlayer, status: YQAudioPlayerStatus) {
+        print(status)
+    }
     
-    
+    func audioPlayer(_ player: YQAudioPlayer, seconds: Double) {
+        print(seconds)
+    }
 }

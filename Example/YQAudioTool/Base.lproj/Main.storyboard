@@ -21,17 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMI-ar-uAM">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMI-ar-uAM">
                                 <rect key="frame" x="164" y="295" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="开始"/>
+                                <state key="normal" title="开始">
+                                    <color key="titleColor" red="0.23137254900000001" green="0.4549019608" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <state key="selected" title="结束"/>
                                 <connections>
                                     <action selector="playAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0ob-3d-FHw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6w-IE-cbg">
+                                <rect key="frame" x="150.5" y="424" width="74" height="34"/>
+                                <state key="normal" title="播放录音">
+                                    <color key="titleColor" red="0.23137254900000001" green="0.4549019608" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playRecord:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oG4-1j-qfu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f6w-IE-cbg" secondAttribute="bottom" constant="209" id="2Ls-l3-Mbi"/>
+                            <constraint firstItem="f6w-IE-cbg" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="yPi-gm-Q54"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="playButton" destination="KMI-ar-uAM" id="6Aq-jS-CQ3"/>
