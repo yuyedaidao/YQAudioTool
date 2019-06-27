@@ -13,6 +13,7 @@ public enum YQAudioPlayerStatus {
     case failed
     case readyToPlay
     case didPlayToEnd
+    case timeJumped
 }
 public protocol YQAudioPlayerDelegate {
     func audioPlayer(_ player: YQAudioPlayer, status: YQAudioPlayerStatus)
@@ -35,6 +36,7 @@ public class YQAudioPlayer: NSObject {
     public override init() {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(notificationHandler(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationHandler(_:)), name: .AVPlayerItemTimeJumped, object: nil)
 
     }
     public func play() {
@@ -76,6 +78,8 @@ public class YQAudioPlayer: NSObject {
         case .AVPlayerItemDidPlayToEndTime:
             removeObservers()
             delegate?.audioPlayer(self, status: .didPlayToEnd)
+        case .AVPlayerItemTimeJumped:
+            delegate?.audioPlayer(self, status: .timeJumped)
         default:
             return
         }
