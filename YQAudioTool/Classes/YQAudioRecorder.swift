@@ -92,6 +92,10 @@ public class YQAudioRecorder: NSObject {
         delegate?.recoreder(self, peakPower: recorder.peakPower(forChannel: 0), averagePower: recorder.averagePower(forChannel: 0))
     }
     
+    public var isRecording: Bool {
+        return recorder?.isRecording ?? false
+    }
+    
     public func stop() {
         guard let recorder = self.recorder else {
             return
