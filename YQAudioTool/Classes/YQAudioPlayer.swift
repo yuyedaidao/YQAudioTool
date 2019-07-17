@@ -37,9 +37,11 @@ public class YQAudioPlayer: NSObject {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(notificationHandler(_:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationHandler(_:)), name: .AVPlayerItemTimeJumped, object: nil)
-
     }
     public func play() {
+        guard activeSession() else {
+            return
+        }
         if isItemChanged {
             guard let url = self.url else {
                 return
@@ -53,7 +55,7 @@ public class YQAudioPlayer: NSObject {
             if let item = player?.currentItem {
                 addObserver(for: item)
             }
-    
+            
             player?.play()
             isItemChanged = false
         } else {
@@ -95,6 +97,18 @@ public class YQAudioPlayer: NSObject {
             item.removeObserver(self, forKeyPath: "status")
         }
         didAddObserverItems.removeAll()
+    }
+    
+    func activeSession() -> Bool {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSession.Category.playback)
+            try session.setActive(true)
+            return true
+        } catch let error {
+            print(error)
+            return false
+        }
     }
     
     deinit {
