@@ -2,11 +2,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://gitee.com/padding/YQPods.git'
 
 use_frameworks!
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'YQAudioTool_Example' do
   pod 'YQAudioTool', :path => '../'
-
   #pod 'Moya/RxSwift', '~> 12.0'
   #pod 'SnapKit', '~> 4.0.0'
   #pod 'RxCoreData', '~> 0.5.1'

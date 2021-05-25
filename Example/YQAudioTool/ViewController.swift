@@ -14,10 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     let recorder = YQAudioRecorder()
     let player = YQAudioPlayer()
+    var outputURL: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         recorder.delegate = self
+    
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
 
@@ -25,13 +27,13 @@ class ViewController: UIViewController {
         if sender.isSelected {
             recorder.stop()
         } else {
-            recorder.start()
+            recorder.start(isMP3Format: false)
         }
 //        sender.isSelected = !sender.isSelected
     }
     
     @IBAction func playRecord(_ sender: Any) {
-        guard let url = recorder.fileURL else {
+        guard let url = outputURL else {
             return
         }
         player.url = url
@@ -50,14 +52,15 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: YQAudioRecorderDelegate {
+    func recorderDidEnd(_ recorder: YQAudioRecorder, fileURL: URL?, error: Error?) {
+        print("结束记录")
+        playButton.isSelected = false
+        outputURL = fileURL
+    }
+    
     func recorderDidStart(_ recorder: YQAudioRecorder) {
         print("开始记录")
         playButton.isSelected = true
-    }
-    
-    func recorderDidEnd(_ recorder: YQAudioRecorder) {
-        print("结束记录")
-        playButton.isSelected = false
     }
     
     func recoreder(_ recorder: YQAudioRecorder, peakPower: Float, averagePower: Float) {

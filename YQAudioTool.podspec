@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YQAudioTool'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'YQAudioTool.'
 
 # This description is used to generate tags and improve search results.
@@ -26,8 +26,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/yuyedaidao/YQAudioTool.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   s.swift_version = '5.0'
+  s.static_framework = true
   s.source_files = 'YQAudioTool/Classes/**/*'
   
 #  s.resource_bundles = {
@@ -41,4 +42,5 @@ Pod::Spec.new do |s|
   # s.dependency 'SnapKit', '~> 4.0.0'
   # s.dependency 'RxCoreData', '~> 0.5.1'
   # s.dependency 'RxDataSources', '~> 3.0'
+  s.dependency 'yq_lame'
 end
