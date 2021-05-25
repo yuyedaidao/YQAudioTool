@@ -15,7 +15,7 @@ public protocol YQAudioRecorderDelegate: AnyObject {
     func recoreder(_ recorder: YQAudioRecorder, peakPower: Float, averagePower: Float)
 }
 
-extension YQAudioRecorderDelegate {
+public extension YQAudioRecorderDelegate {
     func recorderDidStart(_ recorder: YQAudioRecorder) {}
     func recorderDidEnd(_ recorder: YQAudioRecorder, fileURL: URL?, error: Error?) {}
     func recoreder(_ recorder: YQAudioRecorder, peakPower: Float, averagePower: Float) {}
