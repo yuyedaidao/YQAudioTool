@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         if sender.isSelected {
             recorder.stop()
         } else {
+            recorder.clearCache()
             recorder.start(isMP3Format: false)
         }
 //        sender.isSelected = !sender.isSelected
@@ -39,9 +40,9 @@ class ViewController: UIViewController {
         player.url = url
         player.delegate = self
         player.play()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-            self.player.seek(6)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+//            self.player.seek(6)
+//        }
     }
     
     override func didReceiveMemoryWarning() {

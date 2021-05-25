@@ -38,6 +38,34 @@ public class YQAudioRecorder: NSObject {
     private var isMP3Active: Bool = false
     private var _isRecording: Bool = false
     
+    public func clearCache(_ asyn: Bool = true) {
+        func clear() {
+            do {
+                let manager = FileManager.default
+                guard manager.fileExists(atPath: mainURL.path) else {
+                    return
+                }
+                for item in try manager.contentsOfDirectory(atPath: mainURL.path) {
+                    let path = mainURL.path + "/" + item
+                    if manager.fileExists(atPath: path) {
+                        try manager.removeItem(atPath: path)
+                    }
+                }
+            } catch let error {
+                #if DEBUG
+                print(error)
+                #endif
+            }
+        }
+        if asyn {
+            DispatchQueue.global().async {
+                clear()
+            }
+        } else {
+            clear()
+        }
+    }
+    
     public func start(isMP3Format: Bool = true) {
         guard activeSession() else {
             return
