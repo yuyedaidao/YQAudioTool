@@ -32,6 +32,9 @@ public class YQAudioPlayer: NSObject {
     public var currentItemDuration: Double? {
         return self.player?.currentItem?.duration.seconds
     }
+    
+    /// 访问资源时携带的headers
+    public var headers: [String : String]?
     private var didAddObserverItems: Set<AVPlayerItem> = []
     public override init() {
         super.init()
@@ -46,7 +49,7 @@ public class YQAudioPlayer: NSObject {
             guard let url = self.url else {
                 return
             }
-            let playerItem = AVPlayerItem(url: url)
+            let playerItem = AVPlayerItem(asset: AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey" : headers ?? [:]]))
             player = AVPlayer(playerItem: playerItem)
             player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: 6000), queue: nil, using: { [weak self](time) in
                 guard let self = self else {return}
